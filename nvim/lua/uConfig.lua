@@ -166,12 +166,12 @@ local M = {
 
   comment = {
     enable = true,
-    -- Normal 模式快捷键
+    -- Shortcut in normal mode.
     toggler = {
-      line = "gcc", -- 行注释
-      block = "gbc", -- 块注释
+      line = "gcc",  -- Line comment.
+      block = "gbc", -- Block comment.
     },
-    -- Visual 模式
+    -- Shortcut in visual mode.
     opleader = {
       line = "gc",
       block = "gb",
