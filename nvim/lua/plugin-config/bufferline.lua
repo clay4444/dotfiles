@@ -1,3 +1,11 @@
+-- Extract config from a universal config.
+local uConfig = require("uConfig")
+local uBufferLine = uConfig.bufferLine
+
+if uBufferLine == nil or not uBufferLine.enable then
+  return
+end
+
 local status, bufferline = pcall(require, "bufferline")
 if not status then
     vim.notify("bufferline not found!")
@@ -32,3 +40,12 @@ bufferline.setup({
     end,
   },
 })
+
+-- Keybindings.
+keymap("n", uBufferLine.prev, ":BufferLineCyclePrev<CR>")
+keymap("n", uBufferLine.next, ":BufferLineCycleNext<CR>")
+keymap("n", uBufferLine.close, ":Bdelete!<CR>")
+keymap("n", uBufferLine.close_left, ":BufferLineCloseLeft<CR>")
+keymap("n", uBufferLine.close_right, ":BufferLineCloseRight<CR>")
+keymap("n", uBufferLine.close_others, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
+keymap("n", uBufferLine.close_pick, ":BufferLinePickClose<CR>")

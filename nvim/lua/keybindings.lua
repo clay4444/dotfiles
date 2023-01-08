@@ -109,14 +109,6 @@ keymap("n", keys.n_force_quit, ":qa!<CR>")
 
 local pluginKeys = {}
 
--- Bufferline.
-map("n", "<s-tab>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<tab>", ":BufferLineCycleNext<CR>", opt)
-map("n", "<C-w>", ":Bdelete!<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
-
 -- nvim-tree.
 -- Open and close.
 map("n", "<C-m>", ":NvimTreeToggle<CR>", opt)

@@ -121,10 +121,9 @@ local M = {
 
     enable = true,
 
-    prev = "<C-h>",
-    next = "<C-l>",
+    prev = "<s-tab>",
+    next = "<tab>",
     close = "<C-w>",
-    -- close = "<leader>bc",
     close_left = "<leader>bh",
     close_right = "<leader>bl",
     close_others = "<leader>bo",
