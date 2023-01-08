@@ -11,7 +11,7 @@ local M = {
 
     -- Save and quit related.
     n_save = "<leader>w",            -- :w
-    n_save_quit = "<leader>wq",      -- :wq
+    n_save_quit = "<leader>x",       -- :wq / :x
     n_save_all = "<leader>wa",       -- :wa
     n_force_quit = "<leader>q",      -- :qa!
 
@@ -83,14 +83,12 @@ local M = {
 
     enable = true,
 
-    toggle = "<A-m>",
-    -- toggle = "<leader>m"
-    edit = { "o", "<2-LeftMouse>" },
+    toggle = "<C-m>",
+    edit = { "<CR>", "o", "<2-LeftMouse>" },
+    -- TODO: What does 'system_open' mean?
     system_open = "<CR>",
-    -- v分屏打开文件
-    vsplit = "sv",
-    -- h分屏打开文件
-    split = "sh",
+    vsplit = "v",
+    split = "h",
     -- toggle .gitignore (git enable)
     toggle_git_ignored = "i",
     -- Hide (dotfiles)
@@ -98,8 +96,8 @@ local M = {
     -- togglle custom config
     toggle_custom = "u",
 
-    refresh = "R",
-    -- 文件操作
+    refresh = "<F5>",
+    -- File operation.
     create = "a",
     remove = "d",
     rename = "r",
@@ -111,9 +109,7 @@ local M = {
     copy_absolute_path = "gy",
     toggle_file_info = "I",
     tabnew = "t",
-    -- 进入下一级
     cd = "]",
-    -- 进入上一级
     dir_up = "[",
   },
 

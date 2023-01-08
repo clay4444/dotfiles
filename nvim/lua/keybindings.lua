@@ -109,30 +109,6 @@ keymap("n", keys.n_force_quit, ":qa!<CR>")
 
 local pluginKeys = {}
 
--- nvim-tree.
--- Open and close.
-map("n", "<C-m>", ":NvimTreeToggle<CR>", opt)
-
-pluginKeys.nvimTreeList = {
-  -- Open and close dir.
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-  -- Open file with splited window.
-  { key = "v", action = "vsplit" },
-  { key = "h", action = "split" },
-  -- Display hidden file(include customer hidden file and dotfiles).
-  { key = "i", action = "toggle_custom" },
-  { key = ".", action = "toggle_dotfiles" },
-  -- File operation.
-  { key = "<F5>", action = "refresh" },
-  { key = "a", action = "create" },
-  { key = "d", action = "remove" },
-  { key = "r", action = "rename" },
-  { key = "x", action = "cut" },
-  { key = "c", action = "copy" },
-  { key = "p", action = "paste" },
-  { key = "s", action = "system_open" },
-}
-
 -- Telescope.
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
