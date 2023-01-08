@@ -109,28 +109,6 @@ keymap("n", keys.n_force_quit, ":qa!<CR>")
 
 local pluginKeys = {}
 
--- Telescope.
-map("n", "<C-p>", ":Telescope find_files<CR>", opt)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
-
-pluginKeys.telescopeList = {
-  i = {
-    -- Up && Down.
-    ["<C-j>"] = "move_selection_next",
-    ["<C-k>"] = "move_selection_previous",
-    ["<Down>"] = "move_selection_next",
-    ["<Up>"] = "move_selection_previous",
-    -- History.
-    ["<C-n>"] = "cycle_history_next",
-    ["<C-p>"] = "cycle_history_prev",
-    -- Close.
-    ["<C-c>"] = "close",
-    -- Preview the file.
-    ["<C-u>"] = "preview_scrolling_up",
-    ["<C-d>"] = "preview_scrolling_down",
-  },
-}
-
 -- Lsp.
 pluginKeys.mapLSP = function(mapbuf)
   -- Rename.

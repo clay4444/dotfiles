@@ -133,18 +133,11 @@ local M = {
     find_files = "<C-p>",
     live_grep = "<C-f>",
 
-    -- 上下移动
-    move_selection_next = "<C-j>",
-    move_selection_previous = "<C-k>",
-    -- move_selection_next = "<C-n>",
-    -- move_selection_previous = "<C-p>",
-    -- 历史记录
-    cycle_history_next = "<Down>",
-    cycle_history_prev = "<Up>",
-    -- 关闭窗口
-    -- close = "<C-c>",
+    move_selection_next = "<Down>",
+    move_selection_previous = "<Up>",
+    cycle_history_next = "<C-j>",
+    cycle_history_prev = "<C-k>",
     close = "<esc>",
-    -- 预览窗口上下滚动
     preview_scrolling_up = "<C-u>",
     preview_scrolling_down = "<C-d>",
   },

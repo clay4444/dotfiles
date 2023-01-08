@@ -1,3 +1,10 @@
+local uConfig = require("uConfig")
+local uTelescope = uConfig.telescope
+
+if uTelescope == nil or not uTelescope.enable then
+  return
+end
+
 local status, telescope = pcall(require, "telescope")
 if not status then
   vim.notify("telescope not found!")
@@ -8,7 +15,18 @@ telescope.setup({
   defaults = {
     -- Also can be normal.
     initial_mode = "insert",
-    mappings = require("keybindings").telescopeList,
+    -- Shortcut keybindings.
+    mappings = {
+      i = {
+        [uTelescope.move_selection_next] = "move_selection_next",
+        [uTelescope.move_selection_previous] = "move_selection_previous",
+        [uTelescope.cycle_history_next] = "cycle_history_next",
+        [uTelescope.cycle_history_prev] = "cycle_history_prev",
+        [uTelescope.close] = "close",
+        [uTelescope.preview_scrolling_up] = "preview_scrolling_up",
+        [uTelescope.preview_scrolling_down] = "preview_scrolling_down",
+      },
+    },
   },
   pickers = {
     find_files = {
@@ -21,3 +39,12 @@ telescope.setup({
      -- other extension plugin configuration.
   },
 })
+
+-- keybindings.
+keymap("n", uTelescope.find_files, ":Telescope find_files<CR>")
+keymap("n", uTelescope.live_grep, ":Telescope live_grep<CR>")
+
+pcall(telescope.load_extension, "env")
+-- To get ui-select loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+pcall(telescope.load_extension, "ui-select")
