@@ -14,7 +14,7 @@ project.setup({
 
 local status, telescope = pcall(require, "telescope")
 if not status then
-  vim.notify("telescope not found")
+  vim.notify("[Telescope] not found when initialize plugin: [project].")
   return
 end
 pcall(telescope.load_extension, "projects")
