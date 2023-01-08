@@ -1,71 +1,90 @@
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+-- Extract config from a universal config.
+local uConfig = require("uConfig")
+local keys = uConfig.keys
 
 local map = vim.api.nvim_set_keymap
 local opt = {noremap = true, silent = true }
 
--- ============================Split windows start=================================
+-- Set the leader key.
+vim.g.mapleader = keys.leader_key
+vim.g.maplocalleader = keys.leader_key
 
--- Cancel the default action os `s`.
-map("n", "s", "", opt)
--- Split window.
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
--- Close current window.
-map("n", "sc", "<C-w>c", opt)
--- Close ohter windows.
-map("n", "so", "<C-w>o", opt)
--- Jump between multiple windows.
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-l>", "<C-w>l", opt)
+local opts_remap = {
+  remap = true,
+  silent = true,
+}
 
--- Proportional control of left and right.
-map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
-map("n", "s,", ":vertical resize -20<CR>", opt)
-map("n", "s.", ":vertical resize +20<CR>", opt)
--- Proportional control of up and down.
-map("n", "sj", ":resize +10<CR>", opt)
-map("n", "sk", ":resize -10<CR>", opt)
-map("n", "<C-Down>", ":resize +2<CR>", opt)
-map("n", "<C-Up>", ":resize -2<CR>", opt)
--- Equal Proportio.
-map("n", "s=", "<C-w>=", opt)
+local opts_expr = {
+  expr = true,
+  silent = true,
+}
 
 -- ============================Split windows start=================================
 
+if keys.s_windows ~= nil and keys.s_windows.enable then
+  local skey = keys.s_windows
+  -- Cancel the default action os `s`.
+  keymap("n", "s", "")
+  -- Split windows.
+  keymap("n", skey.split_vertically, ":vsp<CR>")
+  keymap("n", skey.split_horizontally, ":sp<CR>")
+  -- Close current window.
+  keymap("n", skey.close, "<C-w>c")
+  -- Close other windows.
+  keymap("n", skey.close_others, "<C-w>o") -- close others
+  -- Control + hjkl to achieve jump between multiple windows.
+  keymap("n", skey.jump_left, "<C-w>h")
+  keymap("n", skey.jump_down, "<C-w>j")
+  keymap("n", skey.jump_up, "<C-w>k")
+  keymap("n", skey.jump_right, "<C-w>l")
+  -- Proportional control.
+  keymap("n", skey.width_decrease, ":vertical resize -10<CR>")
+  keymap("n", skey.width_increase, ":vertical resize +10<CR>")
+  keymap("n", skey.height_decrease, ":vertical resize -10<CR>")
+  keymap("n", skey.height_increase, ":vertical resize +10<CR>")
+  -- Equal Proportio.
+  keymap("n", skey.size_equal, "<C-w>=")
+end
 
--- ============================Terminal option start=================================
+-- ============================Split windows end=================================
 
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
-map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<C-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<C-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<C-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opt)
 
--- ============================Terminal option end=================================
+-- ============================Terminal option start==============================
+
+keymap("n", "<leader>t", ":sp | terminal<CR>")
+keymap("n", "<leader>vt", ":vsp | terminal<CR>")
+keymap("t", "<Esc>", "<C-\\><C-n>")
+keymap("t", "<C-h>", [[ <C-\><C-N><C-w>h ]])
+keymap("t", "<C-j>", [[ <C-\><C-N><C-w>j ]])
+keymap("t", "<C-k>", [[ <C-\><C-N><C-w>k ]])
+keymap("t", "<C-l>", [[ <C-\><C-N><C-w>l ]])
+
+-- ============================Terminal option end================================
+
+
+-- ============================Command mode start=================================
+-- Pre and next.
+keymap("c", keys.c_next_item, "<C-n>", opts_remap)
+keymap("c", keys.c_prev_item, "<C-p>", opts_remap)
+
+-- ============================Command mode end=================================
 
 
 -- ============================Visual mode start=================================
---
-map("v", "<", "<gv", opt)
-map("v", ">", ">gv", opt)
-map("v", "J", ":move '>+1<CR>gv-gv", opt)
-map("v", "K", ":move '<-2<CR>gv-gv", opt)
+keymap("v", "<", "<gv")
+keymap("v", ">", ">gv")
+keymap("v", "J", ":move '>+1<CR>gv-gv")
+keymap("v", "K", ":move '<-2<CR>gv-gv")
 -- Do not copy when paste.
-map("v", "p", '"_dP', opt)
+keymap("v", "p", '"_dP')
 
 -- ============================Visual mode end=================================
 
 
 -- ============================Insert mode start=================================
 
-map("i", "<C-i>", "<ESC>I", opt)
-map("i", "<C-a>", "<ESC>A", opt)
+keymap("i", "<C-i>", "<ESC>I")
+keymap("i", "<C-a>", "<ESC>A")
 
 -- ============================Insert mode end=================================
 
@@ -74,13 +93,14 @@ map("i", "<C-a>", "<ESC>A", opt)
 
 -- map("n", "<C-j>", "4j", opt)
 -- map("n", "<C-k>", "4k", opt)
-map("n", "<C-u>", "9k", opt)
-map("n", "<C-d>", "9j", opt)
+keymap({ "n", "v" }, keys.n_v_10j, "10j")
+keymap({ "n", "v" }, keys.n_v_10k, "10k")
 
--- Quit.
-map("n", "q", ":q<CR>", opt)
-map("n", "qq", ":q!<CR>", opt)
-map("n", "Q", ":qa!<CR>", opt)
+-- save && quit
+keymap("n", keys.n_save, ":w<CR>")
+keymap("n", keys.n_save_quit, ":wq<CR>")
+keymap("n", keys.n_save_all, ":wa<CR>")
+keymap("n", keys.n_force_quit, ":qa!<CR>")
 
 -- ============================Other end=================================
 
