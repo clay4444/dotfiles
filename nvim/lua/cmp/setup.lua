@@ -1,8 +1,31 @@
+-- Extract config from a universal config.
+local uConfig = require("uConfig")
+local cmp_conf = uConfig.cmp
+
 local status, cmp = pcall(require, "cmp")
 if not status then
   vim.notify("nvim-cmp not found!")
   return
 end
+
+-- Keybindings.
+local mapping = {
+  [cmp_conf.complete] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+  [cmp_conf.abort] = cmp.mapping({
+    i = cmp.mapping.abort(),
+    c = cmp.mapping.close(),
+  }),
+  -- Accept currently selected item. If none selected, `select` first item.
+  -- Set `select` to `false` to only confirm explicitly selected items.
+  [cmp_conf.confirm] = cmp.mapping.confirm({
+    select = true,
+    behavior = cmp.ConfirmBehavior.Replace,
+  }),
+  [cmp_conf.scroll_doc_up] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+  [cmp_conf.scroll_doc_down] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+  [cmp_conf.select_prev_item] = cmp.mapping.select_prev_item(),
+  [cmp_conf.select_next_item] = cmp.mapping.select_next_item(),
+}
 
 cmp.setup({
   -- Specify snippet Engine.
@@ -21,6 +44,10 @@ cmp.setup({
       -- require'snippy'.expand_snippet(args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
   -- Completion source.
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -38,7 +65,7 @@ cmp.setup({
   }, { { name = "buffer" }, { name = "path" } }),
 
   -- Keybinding.
-  mapping = require("keybindings").cmp(cmp),
+  mapping = mapping,
 })
 
 -- Use buffer source in search mode.
@@ -58,4 +85,3 @@ cmp.setup.cmdline(":", {
     { name = "cmdline" },
   }),
 })
-

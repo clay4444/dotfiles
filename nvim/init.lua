@@ -17,5 +17,4 @@ require("colorscheme")
 require("lsp.setup")
 
 -- ================= Code completion =================
-require("lsp.cmp")
-
+require("cmp.setup")

@@ -18,14 +18,6 @@ local M = {
     n_v_10k = "<C-u>",
     n_v_10j = "<C-d>",
 
-    -- cmp 快捷键
-    cmp_complete = "<A-.>",
-    cmp_abort = "<A-,>",
-    cmp_confirm = "<CR>",
-    cmp_scroll_doc_up = "<C-u>",
-    cmp_scroll_doc_down = "<C-d>",
-    cmp_select_prev_item = "<C-k>",
-    cmp_select_next_item = "<C-j>",
 
     -- luasnip
     snip_jump_next = "<C-l>",
@@ -205,6 +197,17 @@ local M = {
     open_flow = "gp",
     goto_next = "gj",
     goto_prev = "gk",
+  },
+
+  -- cmp related.
+  cmp = {
+    complete = "<C-.>",
+    abort = "<C-,>",
+    confirm = "<CR>",
+    scroll_doc_up = "<C-u>",
+    scroll_doc_down = "<C-d>",
+    select_prev_item = "<C-k>",
+    select_next_item = "<C-j>",
   },
 }
 
