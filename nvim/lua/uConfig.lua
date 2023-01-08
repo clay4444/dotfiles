@@ -197,19 +197,14 @@ local M = {
     code_action = "<leader>ca",
     format = "<leader>f",
     definition = "gd",
+    declaration = "gD",
     references = "gr",
+    implementation = "gi",
     hover = "gh",
     -- diagnostic
     open_flow = "gp",
     goto_next = "gj",
     goto_prev = "gk",
-    -- typescript
-    ts_organize = "gs",
-    ts_rename_file = "gR",
-    ts_add_missing_import = "gi",
-    ts_remove_unused = "gu",
-    ts_fix_all = "gf",
-    ts_goto_source = "gD",
   },
 }
 
