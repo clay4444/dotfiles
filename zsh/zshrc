@@ -141,6 +141,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source /etc/profile
 export PATH=$HOME/bin:$DOTFILES/bin:$PATH
 
 source $DOTFILES/zsh/alias.zsh
