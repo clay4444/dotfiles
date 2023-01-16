@@ -162,11 +162,11 @@ local M = {
   toggleterm = {
     enable = true,
 
-    -- <leader>ta 浮动命令行窗口
+    -- Float mode.
     toggle_window_A = "<leader>ta",
-    -- <leader>tb 右侧命令行窗口
+    -- Right window.
     toggle_window_B = "<leader>tb",
-    -- <leader>tc 下方命令行窗口
+    -- Below window.
     toggle_window_C = "<leader>tc",
   },
 

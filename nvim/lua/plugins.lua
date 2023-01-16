@@ -126,6 +126,14 @@ packer.startup({
         require("plugin-config.comment")
       end,
     })
+
+    -- =========================== toggleterm ============================
+    use({
+      "akinsho/toggleterm.nvim",
+      config = function()
+        require("plugin-config.toggleterm")
+      end,
+    })
   end,
   config = {
     display = {

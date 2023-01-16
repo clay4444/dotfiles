@@ -51,13 +51,14 @@ end
 
 -- ============================Terminal option start==============================
 
-keymap("n", "<leader>t", ":sp | terminal<CR>")
-keymap("n", "<leader>vt", ":vsp | terminal<CR>")
-keymap("t", "<Esc>", "<C-\\><C-n>")
-keymap("t", "<C-h>", [[ <C-\><C-N><C-w>h ]])
-keymap("t", "<C-j>", [[ <C-\><C-N><C-w>j ]])
-keymap("t", "<C-k>", [[ <C-\><C-N><C-w>k ]])
-keymap("t", "<C-l>", [[ <C-\><C-N><C-w>l ]])
+-- Use toggleterm instead.
+-- keymap("n", "<leader>t", ":sp | terminal<CR>")
+-- keymap("n", "<leader>vt", ":vsp | terminal<CR>")
+-- keymap("t", "<Esc>", "<C-\\><C-n>")
+-- keymap("t", "<C-h>", [[ <C-\><C-N><C-w>h ]])
+-- keymap("t", "<C-j>", [[ <C-\><C-N><C-w>j ]])
+-- keymap("t", "<C-k>", [[ <C-\><C-N><C-w>k ]])
+-- keymap("t", "<C-l>", [[ <C-\><C-N><C-w>l ]])
 
 -- ============================Terminal option end================================
 
