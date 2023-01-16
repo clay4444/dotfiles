@@ -66,8 +66,6 @@ packer.startup({
     -- ======================= Dashboard-nvim =========================
     use({
       "glepnir/dashboard-nvim",
-      -- Revert to fix the error when starting.
-      commit = "e517188dab55493fb9034b4d4f1a508ccacfcd45",
       config = function()
         require("plugin-config.dashboard")
       end,
