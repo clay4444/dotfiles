@@ -51,6 +51,7 @@ end
 
 -- ============================Terminal option start==============================
 
+keymap("t", keys.terminal_to_normal, "<C-\\><C-n>")
 -- Use toggleterm instead.
 -- keymap("n", "<leader>t", ":sp | terminal<CR>")
 -- keymap("n", "<leader>vt", ":vsp | terminal<CR>")
