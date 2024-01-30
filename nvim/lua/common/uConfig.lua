@@ -75,7 +75,7 @@ local M = {
 
     enable = true,
 
-    toggle = "<C-m>",
+    toggle = "<leader>m",
     edit = { "<CR>", "o", "<2-LeftMouse>" },
     -- TODO: What does 'system_open' mean?
     system_open = "<CR>",

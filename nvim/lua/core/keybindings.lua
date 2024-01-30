@@ -1,5 +1,5 @@
 -- Extract config from a universal config.
-local uConfig = require("uConfig")
+local uConfig = require("common.uConfig")
 local keys = uConfig.keys
 
 local map = vim.api.nvim_set_keymap

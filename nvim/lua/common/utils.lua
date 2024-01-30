@@ -1,7 +1,7 @@
 function _G.requirePlugin(name)
   local status_ok, plugin = pcall(require, name)
   if not status_ok then
-    vim.notify("Plugin: " .. name .. "not found!")
+    vim.notify("Plugin: " .. name .. "not found!", "warn")
     return nil
   end
   return plugin

@@ -1,20 +1,4 @@
--- =============== Common utils =====================
-require("utils.global")
-
--- ===================Basic config===================
-require('basic')
-
--- ===================keybindings=====================
-require("keybindings")
-
--- =================Packer Plugin Manager=============
-require("plugins")
-
--- ===================Color Theme=====================
-require("colorscheme")
-
--- ================== LSP support ====================
-require("lsp.setup")
-
--- ================= Code completion =================
-require("cmp.setup")
+require("core")
+-- NOTE: Do not put lazy.lua in the lua/ directly.
+-- More info please refer to https://github.com/folke/lazy.nvim/issues/1233.
+require("lazy.lazy")
