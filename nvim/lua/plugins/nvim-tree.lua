@@ -3,7 +3,7 @@ local uTree = uConfig.nvimTree
 
 if uTree == nil or not uTree.enable then
   vim.notify("nvim-tree plugin was disabled.", "warn")
-  return
+  return {}
 end
 
 return {
