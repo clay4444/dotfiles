@@ -209,6 +209,10 @@ local M = {
     select_prev_item = "<C-k>",
     select_next_item = "<C-j>",
   },
+
+  format = {
+    format = "<leader>f",
+  }
 }
 
 return M
