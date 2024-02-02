@@ -23,7 +23,8 @@ M.keyAttach = function(bufnr)
   buf_set_keymap("n", lsp.open_flow, "<cmd>lua vim.diagnostic.open_float()<CR>")
   buf_set_keymap("n", lsp.goto_prev, "<cmd>lua vim.diagnostic.goto_prev()<CR>")
   buf_set_keymap("n", lsp.goto_next, "<cmd>lua vim.diagnostic.goto_next()<CR>")
-  buf_set_keymap("n", lsp.format, "<cmd>lua vim.lsp.buf.formatting()<CR>")
+  -- Use external format plugin.
+  -- buf_set_keymap("n", lsp.format, "<cmd>lua vim.lsp.buf.formatting()<CR>")
 end
 
 -- Use specificied plugin to format file.

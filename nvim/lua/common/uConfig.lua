@@ -10,14 +10,13 @@ local M = {
     c_prev_item = "<C-k>",
 
     -- Save and quit related.
-    n_save = "<leader>w",            -- :w
-    n_save_quit = "<leader>x",       -- :wq / :x
-    n_save_all = "<leader>wa",       -- :wa
-    n_force_quit = "<leader>q",      -- :qa!
+    n_save = "<leader>w", -- :w
+    n_save_quit = "<leader>x", -- :wq / :x
+    n_save_all = "<leader>wa", -- :wa
+    n_force_quit = "<leader>q", -- :qa!
 
     n_v_10k = "<C-u>",
     n_v_10j = "<C-d>",
-
 
     -- luasnip
     snip_jump_next = "<C-l>",
@@ -149,7 +148,7 @@ local M = {
     enable = true,
     -- Shortcut in normal mode.
     toggler = {
-      line = "gcc",  -- Line comment.
+      line = "gcc", -- Line comment.
       block = "gbc", -- Block comment.
     },
     -- Shortcut in visual mode.
@@ -187,7 +186,7 @@ local M = {
   lsp = {
     rename = "<leader>rn",
     code_action = "<leader>ca",
-    format = "<leader>f",
+    -- format = "<leader>f",
     definition = "gd",
     declaration = "gD",
     references = "gr",
@@ -212,7 +211,7 @@ local M = {
 
   format = {
     format = "<leader>f",
-  }
+  },
 }
 
 return M
