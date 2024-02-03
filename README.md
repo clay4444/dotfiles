@@ -1,10 +1,9 @@
 # dotfiles
 
-My config files for NeoVim.
+My config files for Zsh, Tmux, and Neovim.
 
-# Neovim
+## Installation
 
-## Dependency
-
-1. Nerd Font,  follow this repo: [Nerd Font](https://github.com/ryanoasis/nerd-fonts) to install it in your laptop and then import to your terminal.
-2. repgrep && fd which is required by telescope, a fuzzy search plugin. follow [this](https://www.linode.com/docs/guides/ripgrep-linux-installation/) to install repgrep and download fd from [here](https://github.com/sharkdp/fd/releases/).
+1. Install Tmux 2.1+, if you don't have it.
+2. `git clone --recursive https://github.com/clay4444/dotfiles.git ~/dotfiles`.
+3. `cd ~/dotfiles && ./setup.sh`.
